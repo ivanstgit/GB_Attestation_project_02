@@ -1,0 +1,66 @@
+$ mkdir "Игрушки для школьников"
+$ cat > "Игрушки для школьников"/"роботы"
+^C
+$ cat > "Игрушки для школьников"/"конструктор"
+^C
+$ cat > "Игрушки для школьников"/"настольные игры"
+^C
+$ mkdir "Игрушки для дошколят" 
+$ cat > "Игрушки для дошколят"/"мягкие игрушки"
+^C
+$ cat > "Игрушки для дошколят"/"куклы"
+^C
+$ cat > "Игрушки для дошколят"/"машинки"
+$ mkdir "Игрушки"
+$ cat "Игрушки для школьников"/"роботы" > "Игрушки"/"роботы"
+$ cat "Игрушки для школьников"/"конструктор" > "Игрушки"/"конструктор"
+$ cat "Игрушки для школьников"/"настольные игры" > "Игрушки"/"настольные игры"
+$ cat "Игрушки для дошколят"/"мягкие игрушки" > "Игрушки"/"мягкие игрушки"
+$ cat "Игрушки для дошколят"/"куклы" > "Игрушки"/"куклы"
+$ cat "Игрушки для дошколят"/"машинки" > "Игрушки"/"машинки"
+$ ls "Игрушки" > 'Игрушки.txt'
+
+
+$ sudo snap install vlc
+[sudo] password for : 
+vlc 3.0.18 from VideoLAN✓ installed
+$ sudo snap remove vlc
+vlc removed
+
+
+$ nano regular_job.sh
+$ chmod +x regular_job.sh 
+ crontab -e
+crontab: installing new crontab
+python_student@VMUbuntuMate:~/Desktop/GB_attestation/GB_Attestation_project_02$ crontab -l
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').
+# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+*/3 * * * * /home/python_student/Desktop/GB_attestation/GB_Attestation_project_02/regular_job.sh
+
+$ grep CRON /var/log/syslog | tail 
+Feb 11 20:42:01 VMUbuntuMate CRON[15531]: (python_student) CMD (/home/python_student/Desktop/GB_attestation/GB_Attestation_project_02/regular_job.sh)
+Feb 11 20:45:01 VMUbuntuMate CRON[15791]: (python_student) CMD (/home/python_student/Desktop/GB_attestation/GB_Attestation_project_02/regular_job.sh)
+Feb 11 20:48:01 VMUbuntuMate CRON[15916]: (python_student) CMD (/home/python_student/Desktop/GB_attestation/GB_Attestation_project_02/regular_job.sh)
+Feb 11 20:51:01 VMUbuntuMate CRON[16107]: (python_student) CMD (/home/python_student/Desktop/GB_attestation/GB_Attestation_project_02/regular_job.sh)
+$ crontab -r
